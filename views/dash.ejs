@@ -29,13 +29,18 @@
 
     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
       <!-- User Entry -->
-      <form class="bs-example">
-        <p>@username</p>
-        <textarea class="form-control" name="new-entry"></textarea>
+      <form class="bs-example" action="/dash" method="post">
+        <input class="" type="text" name="username" placeholder="Username">
+        <textarea class="form-control" name="newEntry" maxlength="255"></textarea>
         <br>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <!-- Other people-->
+      <%if(tweets) { %>
+      <% for(let tweet of tweets) { %>
+      <% let username = tweet[0]; %>
+      <% let entry = tweet[1]; %>
+      <% let date = tweet[2]; %>
       <div class="bs-example">
         <div class="row">
           <div class="col-lg-2 col-md-2 col-sm-2">
@@ -46,64 +51,16 @@
             </div>
           </div>
           <div class="col-lg-10 col-md-10 col-sm-10">
-            <h5>@username</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p class="text-right">Posted: Sat Feb 04 2017</p>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="bs-example">
-        <div class="row">
-          <div class="col-lg-2 col-md-2 col-sm-2">
-            <div class="media-left">
-              <a href="#">
-                <img class="media-object img-thumbnail" src="http://fillmurray.com/50/50" alt="user">
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-10 col-md-10 col-sm-10">
-            <h5>@username</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p class="text-right">Posted: Sat Feb 04 2017</p>
+            <h5>@<%= username %></h5>
+            <p><%= entry %></p>
+            <p class="text-right">Posted: <%= date %></p>
           </div>
         </div>
       </div>
+      <% } %>
+      <% } %>
 
-      <div class="bs-example">
-        <div class="row">
-          <div class="col-lg-2 col-md-2 col-sm-2">
-            <div class="media-left">
-              <a href="#">
-                <img class="media-object img-thumbnail" src="http://fillmurray.com/50/50" alt="user">
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-10 col-md-10 col-sm-10">
-            <h5>@username</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p class="text-right">Posted: Sat Feb 04 2017</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bs-example">
-        <div class="row">
-          <div class="col-lg-2 col-md-2 col-sm-2">
-            <div class="media-left">
-              <a href="#">
-                <img class="media-object img-thumbnail" src="http://fillmurray.com/50/50" alt="user">
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-10 col-md-10 col-sm-10">
-            <h5>@username</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p class="text-right">Posted: Sat Feb 04 2017</p>
-          </div>
-        </div>
-      </div>
+      
     </div>
   </div>
 </div>
