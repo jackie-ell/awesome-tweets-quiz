@@ -12,6 +12,10 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
+app.get('/', (req, res) => {
+  res.render('index');
+});
+
 
 const PORT = 4545;
 app.listen(PORT, ()=> {
