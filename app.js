@@ -16,9 +16,25 @@ app.use(cookieParser());
 app.use((req, res, next) => {
   const {tweets} = req.cookies;
 
-  res.locals.tweets = tweets;
+  let sortedTweets = tweets;
 
-  console.log(res.locals.tweets);
+  //console.log(`Before: ${sortedTweets}`);
+
+  for (let i = 0; i < sortedTweets.length-1; i +=1){
+    for (let j = 0; j < sortedTweets.length-1; j +=1){
+      if(sortedTweets[j][1].length < sortedTweets[j+1][1].length){
+        let temp = sortedTweets[j];
+        sortedTweets[j] = sortedTweets[j+1];
+        sortedTweets[j+1] = temp;
+      }
+    }
+  }
+
+  //console.log(`After: ${sortedTweets}`);
+
+  res.locals.tweets = sortedTweets;
+
+  //console.log(res.locals.tweets);
   next();
 });
 
