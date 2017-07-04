@@ -1,0 +1,42 @@
+body {
+  height: 100vh;
+  background-image: url('https://i.redditmedia.com/ivop1O4gflfzOI7mIeGDMPWGO_DWIY7Ow6UCHAnSXoU.jpg?w=1024&s=da99d4116bedeab422b724a905479311');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#welcome {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: black 2px 2px;
+}
+
+.bs-example {
+margin-right: 0;
+margin-left: 0;
+background-color: #fff;
+border-color: #ddd;
+border-width: 1px;
+border-radius: 4px 4px 4px 4px;
+-webkit-box-shadow: none;
+box-shadow: none;
+padding: 10px;
+margin-bottom: 10px;
+}
+@media (max-width: 992px){
+.large-el {
+  display: none;
+}
+.small-el {
+  display: inherit;
+}
+
+@media (min-width: 992px){
+  .large-el {
+    display: inherit;
+  }
+  .small-el{
+    display: none;
+  }
