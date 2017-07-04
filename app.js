@@ -16,6 +16,10 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.get('/dash', (req,res) => {
+  res.render('dash');
+});
+
 
 const PORT = 4545;
 app.listen(PORT, ()=> {
